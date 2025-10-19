@@ -1,0 +1,27 @@
+import mongoose from "mongoose";
+
+const cardSchema = new mongoose.Schema({
+  ProductName: { type: String, required: true },
+  SKU: { type: String, required: true },
+  Description: { type: String, required: true },
+  Specifications: { type: String, required: true },
+  Price: { type: String, required: true },
+  CompareatPrice: { type: String, required: true },
+  Weight: { type: String, required: true },
+  Category: { type: String, required: true },
+  StockQuantity: { type: String, required: true },
+  img3: { type: String, required: true }
+}, { _id: true });
+
+const useraSchema = new mongoose.Schema({
+  name: { type: String, default: "" },
+  address: { type: String, default: "" },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  UserCard: [cardSchema],
+  resetOTP: { type: String },
+  otpExpire: { type: Date },
+}, { timestamps: true });
+
+const Users = mongoose.model("NormalUser", useraSchema);
+export default Users;
