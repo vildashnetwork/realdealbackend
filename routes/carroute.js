@@ -17,6 +17,10 @@ router.post("/", async (req, res) => {
       Category,
       StockQuantity,
       img3,
+      img2,
+      img4,
+      img5,
+      img6
     } = req.body;
 
     // Validate required fields
@@ -26,7 +30,6 @@ router.post("/", async (req, res) => {
       !Description ||
       !Specifications ||
       !Price ||
-      !CompareatPrice ||
       !Weight ||
       !Category ||
       !StockQuantity ||
@@ -41,22 +44,26 @@ router.post("/", async (req, res) => {
       Description,
       Specifications,
       Price,
-      CompareatPrice,
+      CompareatPrice ,
       Weight,
       Category,
       StockQuantity,
       img3,
+      img2,
+      img4,
+      img5,
+      img6
     });
 
-    const savedFishingTool = await newFishingTool.save();
-    res.status(201).json({
-      message: "Fishing tool added successfully",
-      fishingTool: savedFishingTool,
-    });
+const savedFishingTool = await newFishingTool.save();
+res.status(201).json({
+  message: "Fishing tool added successfully",
+  fishingTool: savedFishingTool,
+});
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Internal server error" });
-  }
+  console.error(err);
+  res.status(500).json({ message: "Internal server error" });
+}
 });
 
 // 🔹 GET All Fishing Tools
