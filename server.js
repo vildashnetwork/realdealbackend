@@ -18,6 +18,7 @@ const app = express();
 
 app.use(express.json())
 app.use(cors())
+app.options('*', cors());
 app.use("/api/auth", change)
 app.use("/delete", deleting)
 app.use("/api/confirm", confirm)
